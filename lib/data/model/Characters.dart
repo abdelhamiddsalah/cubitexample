@@ -1,59 +1,6 @@
 // ignore_for_file: file_names
 
 class Character {
-  Info? info;
-  List<Results>? results;
-
-  Character({this.info, this.results});
-
-  Character.fromJson(Map<String, dynamic> json) {
-    info = json['info'] != null ?  Info.fromJson(json['info']) : null;
-    if (json['results'] != null) {
-      results = <Results>[];
-      json['results'].forEach((v) {
-        results!.add(Results.fromJson(v));
-      });
-    }
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = <String, dynamic>{};
-    if (info != null) {
-      data['info'] = info!.toJson();
-    }
-    if (results != null) {
-      data['results'] = results!.map((v) => v.toJson()).toList();
-    }
-    return data;
-  }
-}
-
-class Info {
-  int? count;
-  int? pages;
-  String? next;
-  Null prev;
-
-  Info({this.count, this.pages, this.next, this.prev});
-
-  Info.fromJson(Map<String, dynamic> json) {
-    count = json['count'];
-    pages = json['pages'];
-    next = json['next'];
-    prev = json['prev'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
-    data['count'] = count;
-    data['pages'] = pages;
-    data['next'] = next;
-    data['prev'] = prev;
-    return data;
-  }
-}
-
-class Results {
   int? id;
   String? name;
   String? status;
@@ -67,7 +14,7 @@ class Results {
   String? url;
   String? created;
 
-  Results(
+  Character(
       {this.id,
       this.name,
       this.status,
@@ -81,7 +28,7 @@ class Results {
       this.url,
       this.created});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  Character.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     status = json['status'];
@@ -89,9 +36,9 @@ class Results {
     type = json['type'];
     gender = json['gender'];
     origin =
-        json['origin'] != null ?  Origin.fromJson(json['origin']) : null;
+        json['origin'] != null ? Origin.fromJson(json['origin']) : null;
     location =
-        json['location'] != null ?  Origin.fromJson(json['location']) : null;
+        json['location'] != null ? Origin.fromJson(json['location']) : null;
     image = json['image'];
     episode = json['episode'].cast<String>();
     url = json['url'];
@@ -99,7 +46,7 @@ class Results {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['id'] = id;
     data['name'] = name;
     data['status'] = status;
@@ -132,7 +79,7 @@ class Origin {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data =  <String, dynamic>{};
+    final Map<String, dynamic> data = <String, dynamic>{};
     data['name'] = name;
     data['url'] = url;
     return data;
