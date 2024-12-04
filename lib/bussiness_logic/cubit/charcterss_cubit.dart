@@ -12,13 +12,16 @@ class CharcterssCubit extends Cubit<CharcterssState> {
   final Repository repositriy;
   CharcterssCubit(this.repositriy) : super(CharcterssInitial());
 
- Future<dynamic> AllCharacters()async{
-   try {
+ Future<List<Character>> AllCharacters() async {
+  try {
     emit(CharcterssLoading());
-  final response=await repositriy.getCharacters();
-  emit(CharcterssLoaded(character: response));
-} on Exception catch (e) {
- emit(CharcterssFailure(error: e.toString()));
-}
+    final response = await repositriy.getCharacters();
+    emit(CharcterssLoaded(character: response));
+    return response; // قم بإرجاع النتيجة إذا تم بنجاح
+  } on Exception catch (e) {
+    emit(CharcterssFailure(error: e.toString()));
+    throw e; // قم بإلقاء الاستثناء لضمان عدم عودة null
   }
+}
+
 }

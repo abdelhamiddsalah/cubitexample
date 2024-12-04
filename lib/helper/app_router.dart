@@ -23,7 +23,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder:
               (_) => BlocProvider(
-                create: (context) => CharcterssCubit(repository),
+                create: (context) => CharcterssCubit(repository)..AllCharacters(),
                 child: Home(),
               ),
         );
