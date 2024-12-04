@@ -38,8 +38,7 @@ class DioConsumer extends ApiConsumer {
   Future get(String path,
       {Object? data, Map<String, dynamic>? queryparameters}) async {
     try {
-      final response =
-          await dio.get(path, queryParameters: queryparameters, data: data);
+     final response = await dio.get(path, queryParameters: queryparameters);
       return response.data;
     } on Exception catch (e) {
       print(e.toString());
