@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ListviewInHome extends StatelessWidget {
   const ListviewInHome({super.key});
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CharcterssCubit, CharcterssState>(

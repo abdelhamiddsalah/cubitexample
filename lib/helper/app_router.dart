@@ -1,5 +1,6 @@
 import 'package:cubitexample/bussiness_logic/cubit/charcterss_cubit.dart';
 import 'package:cubitexample/data/api_services/dio_consumer.dart';
+import 'package:cubitexample/data/model/Characters.dart';
 import 'package:cubitexample/data/repositries/repositriy.dart';
 import 'package:cubitexample/helper/routes.dart';
 import 'package:cubitexample/presentation/screens/character_details.dart';
@@ -28,7 +29,8 @@ class AppRouter {
               ),
         );
       case characterDetails:
-        return MaterialPageRoute(builder: (_) => CharacterDetails());
+      final chars= settings.arguments as Character;
+        return MaterialPageRoute(builder: (_) => CharacterDetails(character: chars,));
       default:
     }
     return null;

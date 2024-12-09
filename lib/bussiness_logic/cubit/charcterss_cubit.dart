@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names
+// ignore_for_file: non_constant_identifier_names, depend_on_referenced_packages
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
@@ -20,7 +20,7 @@ class CharcterssCubit extends Cubit<CharcterssState> {
     return response; // قم بإرجاع النتيجة إذا تم بنجاح
   } on Exception catch (e) {
     emit(CharcterssFailure(error: e.toString()));
-    throw e; // قم بإلقاء الاستثناء لضمان عدم عودة null
+    rethrow; // قم بإلقاء الاستثناء لضمان عدم عودة null
   }
 }
 
